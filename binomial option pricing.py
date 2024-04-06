@@ -28,7 +28,7 @@ def spot(S0,u,d,N):
   C = S0 * d ** (np.arange(N,-1,-1)) * u ** (np.arange(0,N+1,1)) 
   return C
 
-# print(binomial_tree_slow(K,T,S0,r,N,u,d,opttype='C'))
+
 def binomial_tree_fast(K,T,S0,r,N,u,d,type1,type2):
     #precompute constants
     dt = T/N
