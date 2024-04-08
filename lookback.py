@@ -8,14 +8,10 @@ r = 0.25      # annual risk-free rate
 N = 3        # number of time steps
 u = 2       # up-factor in binomial models
 d = 1/u       # ensure recombining tree
-
+    
 # define function to zipper merge 2 arrays
 def zipmerge(a,b):
-    output=[]
-    for i in range(len(a)):
-        output.append(a[i])
-        output.append(b[i])
-    return output
+    return np.stack([a,b], axis=-1).flatten()
 
 # create function to generate array of all outcomes
 def maxtodate(S0,u,d,n):
@@ -33,14 +29,8 @@ def end_S(S0,u,d,n):
     return S
 #function to unzipper
 def unzipper(S):
-    a=[]
-    b=[]
-    for i in range(int(len(S)/2)):
-        a.append(S[2*i])
-        b.append(S[2*i+1])
-    a=np.array(a)
-    b=np.array(b)
-    return a , b 
+    S = S.reshape(-1,2)
+    return S[:,0], S[:,1]
 
    
 # print(binomial_tree_slow(K,T,S0,r,N,u,d,opttype='C'))
