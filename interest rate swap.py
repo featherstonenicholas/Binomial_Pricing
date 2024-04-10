@@ -1,11 +1,12 @@
 import numpy as np
 #initialise parameters
-r0=0.06
-u=1.25
+r0=0.05
+u=1.1
 d=0.9
-T=6
+T=10
+
 q=0.5
-K=0.05 #fixed swap value
+K=0.045 #fixed swap value
 #create rate lattice calculation
 def rate(r0,u,d,T):
   C = r0 * d ** (np.arange(T,-1,-1)) * u ** (np.arange(0,T+1,1)) 
