@@ -2,7 +2,7 @@ import numpy as np
 
 #initialise parameters
 r0=0.05
-u=1.1
+u=1.2
 d=0.9
 T=10
 q=0.5
